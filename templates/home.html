@@ -1,0 +1,16 @@
+{{define "content"}}
+    <div>
+        {{.Home.Content}}
+    </div>
+
+    <div class="latest-posts">
+        <h2>Latest Posts</h2>
+        {{range .LatestPosts}}
+        <div class="post-list-item">
+            <a href="{{.Metadata.Path}}">{{.Metadata.PageName}}</a> ({{.Metadata.PublishedDate.Format "2006-01-02"}})
+        </div>
+        {{else}}
+        <p>No posts yet.</p>
+        {{end}}
+    </div>
+{{end}}

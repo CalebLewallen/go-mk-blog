@@ -1,0 +1,9 @@
+{{define "content"}}
+    <h1>{{.Post.Metadata.PageName}}</h1>
+    <div class="post-meta">
+        By {{.Post.Metadata.Author}} on {{.Post.Metadata.PublishedDate.Format "2006-01-02"}}
+    </div>
+    <div>
+        {{.Post.Content}}
+    </div>
+{{end}}
