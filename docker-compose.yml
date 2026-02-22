@@ -1,0 +1,15 @@
+services:
+  blog:
+    build: .
+    container_name: go-mk-blog
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    # If your Nginx is running in another Docker container, 
+    # you can connect them via a shared network instead of exposing ports:
+    # networks:
+    #   - proxy-network
+
+# networks:
+#   proxy-network:
+#     external: true
