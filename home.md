@@ -6,10 +6,8 @@ Author: Admin
 RobotsAllowed: true
 ---
 
-# Welcome to My Blog
+# Hi! I'm Caleb
 
-This is the homepage of my simple Go-powered markdown blog. 
+I've spent a career working on small trading desks, tech startups, big banks, and established consulting shops.
 
-I can write **bold text** and *italics* here.
-
-Below you will find my latest posts.
+I like to write about things that interest me. If you'd like to connect, reach out on [LinkedIn](https://www.linkedin.com/in/caleb-lewallen-b8699365/).

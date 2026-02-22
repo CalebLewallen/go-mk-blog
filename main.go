@@ -27,6 +27,7 @@ type StyleConfig struct {
 	SecondaryColor  string
 	LinkColor       string
 	BackgroundColor string
+	Theme           string
 }
 
 type PostMetadata struct {
@@ -195,6 +196,8 @@ func loadConfig() error {
 			config.LinkColor = val
 		case "backgroundColor":
 			config.BackgroundColor = val
+		case "theme":
+			config.Theme = val
 		}
 	}
 	return nil

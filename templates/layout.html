@@ -9,123 +9,14 @@
     <link rel="icon" href="{{.Config.Favicon}}">
     {{end}}
     <style>
-        body {
-            font-family: "Courier New", Courier, monospace;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: {{.Config.BackgroundColor}};
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #000;
-        }
-        header {
-            width: 100%;
-            background-color: transparent;
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
-        }
-        .header-content {
-            width: 100%;
-            max-width: 800px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        .logo-container img {
-            height: 50px;
-            margin-right: 15px;
-            border: 3px solid #000;
-        }
-        .logo-container span {
-            font-size: 2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            color: #000;
-        }
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: {{.Config.PrimaryColor}};
-            font-weight: bold;
-            border: 3px solid {{.Config.PrimaryColor}};
-            padding: 5px 15px;
-            background: transparent;
-            box-shadow: 4px 4px 0px 0px #000;
-            text-transform: uppercase;
-        }
-        nav a:active {
-            box-shadow: 0px 0px 0px 0px #000;
-            transform: translate(4px, 4px);
-        }
-        main {
-            width: 100%;
-            max-width: 800px;
-            padding: 40px 20px;
-            background-color: transparent;
-            box-sizing: border-box;
-            min-height: 100vh;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 3px solid #000;
-            box-shadow: 8px 8px 0px 0px #000;
-        }
-        h1, h2, h3 {
-            color: #000;
-            text-transform: uppercase;
-            border-bottom: 5px solid {{.Config.SecondaryColor}};
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        a {
-            color: {{.Config.LinkColor}};
-            font-weight: bold;
-        }
-        .post-meta {
-            color: #000;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            background: {{.Config.SecondaryColor}};
-            display: inline-block;
-            padding: 2px 10px;
-            border: 2px solid #000;
-        }
-        .latest-posts {
-            margin-top: 60px;
-            border-top: 5px solid #000;
-            padding-top: 20px;
-        }
-        .post-list-item {
-            margin-bottom: 20px;
-        }
-        .post-list-item a {
-            display: inline-block;
-            text-decoration: none;
-            border: 3px solid {{.Config.PrimaryColor}};
-            color: {{.Config.PrimaryColor}};
-            padding: 10px 20px;
-            box-shadow: 6px 6px 0px 0px #000;
-            text-transform: uppercase;
-            background: transparent;
-        }
-        .post-list-item a:hover {
-            background: {{.Config.BackgroundColor}};
-        }
-        .post-list-item a:active {
-            box-shadow: 0px 0px 0px 0px #000;
-            transform: translate(6px, 6px);
+        :root {
+            --primary-color: {{.Config.PrimaryColor}};
+            --secondary-color: {{.Config.SecondaryColor}};
+            --link-color: {{.Config.LinkColor}};
+            --background-color: {{.Config.BackgroundColor}};
         }
     </style>
+    <link rel="stylesheet" href="/static/{{.Config.Theme}}.css">
 </head>
 <body>
     <header>
