@@ -119,3 +119,27 @@ hr:after {
     content: "================================================================================";
     color: var(--primary-color);
 }
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 1px dashed var(--primary-color);
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px dashed var(--primary-color);
+}
+
+th {
+    font-weight: bold;
+    color: var(--secondary-color);
+    border-bottom: 2px dashed var(--primary-color);
+}
+
+tr:hover {
+    background-color: rgba(38, 93, 79, 0.1);
+}

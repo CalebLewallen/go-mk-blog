@@ -252,12 +252,81 @@ func parseMarkdown(r io.Reader) (PostMetadata, string, error) {
 func renderMarkdown(md string) template.HTML {
 	lines := strings.Split(md, "\n")
 	var html strings.Builder
+	inTable := false
 
 	for _, line := range lines {
 		trimmed := strings.TrimSpace(line)
 		if trimmed == "" {
+			if inTable {
+				html.WriteString("</tbody></table>")
+				inTable = false
+			}
 			html.WriteString("<br>")
 			continue
+		}
+
+		if strings.HasPrefix(trimmed, "|") && strings.HasSuffix(trimmed, "|") {
+			// It's a table row
+			if !inTable {
+				html.WriteString("<table><thead>")
+				inTable = true
+			}
+
+			// Check if it's a separator row (e.g., |---|---|)
+			isSeparator := true
+			cells := strings.Split(trimmed, "|")
+			for i := 1; i < len(cells)-1; i++ {
+				cellTrimmed := strings.TrimSpace(cells[i])
+				if len(cellTrimmed) == 0 {
+					isSeparator = false
+					break
+				}
+				// A more robust check for separator row: only contains -, :, and spaces
+				for _, char := range cellTrimmed {
+					if char != '-' && char != ':' && char != ' ' {
+						isSeparator = false
+						break
+					}
+				}
+			}
+
+			if isSeparator {
+				html.WriteString("</thead><tbody>")
+				continue
+			}
+
+			html.WriteString("<tr>")
+			cells = strings.Split(trimmed, "|")
+			for i := 1; i < len(cells)-1; i++ {
+				cellContent := strings.TrimSpace(cells[i])
+
+				// Apply inline formatting to cell content
+				reBold := regexp.MustCompile(`(\*\*[^*]+\*\*)`)
+				cellContent = reBold.ReplaceAllString(cellContent, "<b>$1</b>")
+				reItalic := regexp.MustCompile(`([^\*]|^)(\*[^*]+\*)([^\*]|$)`)
+				cellContent = reItalic.ReplaceAllString(cellContent, "$1<i>$2</i>$3")
+
+				// Clean up bold/italic markers
+				cellContent = strings.ReplaceAll(cellContent, "**", "")
+				cellContent = strings.ReplaceAll(cellContent, "*", "")
+
+				// Check if we are in the tbody section
+				// We can do this by checking if the current table has a <tbody> tag
+				// Since we build the string sequentially, we can check the last occurrence of <table>
+				lastTableIdx := strings.LastIndex(html.String(), "<table>")
+				lastTbodyIdx := strings.LastIndex(html.String(), "<tbody>")
+
+				if lastTbodyIdx > lastTableIdx {
+					html.WriteString(fmt.Sprintf("<td>%s</td>", cellContent))
+				} else {
+					html.WriteString(fmt.Sprintf("<th>%s</th>", cellContent))
+				}
+			}
+			html.WriteString("</tr>")
+			continue
+		} else if inTable {
+			html.WriteString("</tbody></table>")
+			inTable = false
 		}
 
 		if strings.HasPrefix(trimmed, "# ") {
@@ -301,6 +370,10 @@ func renderMarkdown(md string) template.HTML {
 
 			html.WriteString(fmt.Sprintf("<p>%s</p>", renderedLine))
 		}
+	}
+
+	if inTable {
+		html.WriteString("</tbody></table>")
 	}
 
 	return template.HTML(html.String())

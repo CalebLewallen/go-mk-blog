@@ -44,7 +44,9 @@ Meet Joe. Joe is local businessman who owns a shop on main street. He decides to
 
 Here's our current situation:
 
-Depositor Deposits Required Reserves Amount Available to Lend Joe $100,000 $10,000 $90,000
+| Depositor | Deposits | Required Reserves | Amount Available to Lend |
+|-----------|----------|-------------------|--------------------------|
+| Joe       | $100,000 | $10,000           | $90,000                  |
 
 Ok, so we have something new here: **Required Reserves**. Even though we want to loan out Joe's money, we have to keep some of it on hand in case Joe needs it (you know, to make payroll). The Federal Reserve has regulations on the reserves that banks must have on hand for different financial products. For now, let's call it 10%.
 
@@ -52,7 +54,11 @@ Now that we have Joe's deposit, we can lend out up to $90,000 (Joe's deposit, le
 
 Let's review where we are now:
 
-Depositor Deposits Required Reserves Amount Available to Lend Amount Lent Joe $100,000 $10,000 $0 $0 Emily $90,000 $9,000 $81,000 $90,000 **Total** **$190,000** **$19,000** **$81,000** **$90,000**
+| Depositor | Deposits     | Required Reserves | Amount Available to Lend | Amount Lent |
+|-----------|--------------|-------------------|--------------------------|-------------|
+| Joe       | $100,000     | $10,000           | $0                       | $0          |
+| Emily     | $90,000      | $9,000            | $81,000                  | $90,000     |
+| **Total** | **$190,000** | **$19,000**       | **$81,000**              | **$90,000** |
 
 We have $190,000 deposited at our institution now. We are obligated to provide that cash to our depositors *on demand*. However, I've only got the original $100,000 in cash to cover those demands. If you carry this out to it's logical conclusion, I could actually lend out as much as $900,000 on the original deposit!
 
@@ -186,4 +192,4 @@ This saga is still unfolding. Take everything above with a grain of salt. This i
 
 * * *
 
-If you liked this article, consider following me and [subscribing to email updates](__GHOST_URL__/#/portal/signup) whenever I post an article. You can also follow me on [Twitter](https://twitter.com/LewallenCaleb) or connect with me on [LinkedIn](https://www.linkedin.com/in/caleb-lewallen-b8699365/).
+If you liked this article, let's connect! You can follow me on [Twitter](https://twitter.com/LewallenCaleb) or connect with me on [LinkedIn](https://www.linkedin.com/in/caleb-lewallen-b8699365/).

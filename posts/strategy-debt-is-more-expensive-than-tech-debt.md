@@ -68,4 +68,4 @@ Bad strategy can and will happen to every company. Even wildly successful compan
 
 * * *
 
-If you liked this article, consider following me and [subscribing to email updates](__GHOST_URL__/#/portal/signup) whenever I post an article. You can also follow me on [Twitter](https://twitter.com/LewallenCaleb) or connect with me on [LinkedIn](https://www.linkedin.com/in/caleb-lewallen-b8699365/).
+If you liked this article, let's connect! You can also follow me on [Twitter](https://twitter.com/LewallenCaleb) or connect with me on [LinkedIn](https://www.linkedin.com/in/caleb-lewallen-b8699365/).
